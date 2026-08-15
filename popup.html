@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ClipDeck</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="cd-head">
+    <div class="headrow">
+      <div class="stamp">CD</div>
+      <div>
+        <h1 data-i18n="appTitle">ClipDeck</h1>
+        <p class="tagline" data-i18n="tagline">clip the page, keep the card</p>
+      </div>
+    </div>
+    <button id="captureBtn" type="button" data-i18n="captureBtn">[ clip this page ]</button>
+  </header>
+
+  <section class="cd-controls">
+    <input id="searchIn" type="search" data-i18n-ph="searchPh" placeholder="search deck (title, tag, text)…">
+    <div class="countrow"><span data-i18n="countLabel">cards:</span><strong id="countVal">0</strong></div>
+  </section>
+
+  <section class="cd-deck" id="deck"></section>
+
+  <p id="statusMsg" class="statusmsg" aria-live="polite"></p>
+
+  <footer class="cd-foot">
+    <div class="exptools">
+      <button id="exportMdBtn" type="button" data-i18n="exportMd">export .md</button>
+      <button id="exportJsonBtn" type="button" data-i18n="exportJson">export .json</button>
+    </div>
+    <label for="langSel" class="visually-hidden">language</label>
+    <select id="langSel">
+      <option value="en">EN</option><option value="es">ES</option><option value="fr">FR</option>
+      <option value="pt">PT</option><option value="it">IT</option><option value="de">DE</option>
+    </select>
+    <span data-i18n="credit">Built by Harley Vásquez</span>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

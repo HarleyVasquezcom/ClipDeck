@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ClipDeck archive — edition {{EDITION}}</title>
+<style>
+  body { font-family: Georgia, serif; margin: 0 auto; max-width: 760px; line-height: 1.7; color: #2b241a; background: #fdfbf4; padding: 2rem; }
+  nav { font-size: 13px; color: #7a6f58; border-bottom: 1px solid #cfc2a4; padding-bottom: 8px; margin-bottom: 1rem; }
+  #hero { width: 100%; max-width: 420px; border: 3px solid #1f4d3d; border-radius: 4px; }
+  article p { margin: 0.8em 0; }
+  #smallone { width: 40px; height: 40px; }
+</style>
+</head>
+<body>
+  <nav>ClipDeck fixture — the archive refreshes every request (edition {{EDITION}})</nav>
+  <img id="hero" src="/img.png" alt="hero of edition {{EDITION}}">
+  <article id="main">
+    <h1>Archive entry number {{EDITION}}</h1>
+    <p>This is the main article of the ClipDeck fixture. Edition {{EDITION}} changes the title, the text and the marker token below, so two captures of the fixture never look alike — the deck the probe builds is proof that clipping is live.</p>
+    <p>A unique marker sentence for this edition: the registrar filed ledger #{{EDITION}} alongside the previous editions and stamped it with the library seal.</p>
+    <p>Tail text to pad the article so the extraction heuristic clearly prefers this block over the navigation and footer noise that surrounds the fixture page.</p>
+  </article>
+  <img id="smallone" src="/tiny.png" alt="tiny square">
+  <footer>fixture footer with more noise: links, dates, unrelated sentences that should not be the main text.</footer>
+</body>
+</html>

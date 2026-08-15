@@ -1,0 +1,16 @@
+{
+  "name": "clipdeck",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ClipDeck — web clipper deck (MV3): captures page title/URL/main text/main image into a local card deck with tags, search and Markdown/JSON export.",
+  "type": "module",
+  "scripts": {
+    "probe": "node tests/probe.mjs",
+    "zip": "node tools/zip.mjs",
+    "gen-icons": "node tools/gen-icons.mjs"
+  },
+  "devDependencies": {
+    "archiver": "^7.0.1",
+    "puppeteer": "^25.7.0"
+  }
+}

@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ClipDeck — clip the page, keep the card</title>
+<style>
+  :root { --ivory:#f5efe1; --ivory-deep:#e9dfc8; --forest:#1f4d3d; --forest-soft:#3c6b58; --ink:#2b241a; --stamp:#a63d2a; --line:#cfc2a4; }
+  * { box-sizing: border-box; }
+  body { margin:0; background: var(--ivory); color: var(--ink); font-family:'Segoe UI', system-ui, sans-serif; line-height:1.6; }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 0 20px; }
+  header.top { background: var(--forest); color: var(--ivory); }
+  nav.wrap { display:flex; align-items:center; justify-content:space-between; padding:16px 20px; }
+  .brand { font-weight:800; letter-spacing:1px; font-family:'Palatino Linotype','Book Antiqua',serif; font-size:20px; }
+  #langSel { border:1px solid rgba(245,239,225,.5); background: var(--forest-soft); color: var(--ivory); padding:4px 6px; border-radius:3px; }
+  .hero { text-align:center; padding: 60px 20px 50px; }
+  .hero .cards { display:flex; justify-content:center; gap:8px; margin-bottom:22px; }
+  .hero .cards i { display:block; width:64px; height:88px; background:#fdf8ec; border:2px solid var(--forest); border-radius:5px; box-shadow: 4px 4px 0 rgba(47,40,25,.25); }
+  .hero .cards i:nth-child(2) { transform: translateY(8px) rotate(-4deg); }
+  .hero .cards i:nth-child(3) { transform: translateY(14px) rotate(3deg); background: var(--ivory-deep); }
+  .hero h1 { font-family:'Palatino Linotype','Book Antiqua',serif; font-size:42px; margin:0 0 8px; }
+  .hero .sub { font-size:18px; color: var(--forest-soft); margin:0 0 26px; font-style: italic; }
+  .cta { display:inline-block; background: var(--forest); color: var(--ivory); text-decoration:none; padding:12px 26px; border-radius:6px; font-weight:600; box-shadow: 0 5px 0 #123427; }
+  .cta:hover { background: var(--forest-soft); }
+  .features { display:grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap:18px; padding: 40px 0; }
+  .feat { background:#fdf8ec; border:1px solid var(--line); border-radius:6px; box-shadow: 4px 4px 0 rgba(47,40,25,.12); padding:18px; }
+  .feat h3 { margin:0 0 6px; color: var(--forest); font-family:'Palatino Linotype',serif; font-size:17px; }
+  .feat p { margin:0; font-size:14px; color:#5c513c; }
+  .feat .tagdot { display:inline-block; background: var(--stamp); color: var(--ivory); border-radius:3px; font-size:11px; padding:1px 8px; font-family:Consolas,monospace; margin-top:8px; }
+  .install { background:#fdf8ec; border:2px dashed var(--forest); border-radius:8px; padding:26px; margin:24px 0 40px; box-shadow: 5px 5px 0 rgba(47,40,25,.12); }
+  .install h2 { margin-top:0; color: var(--forest); font-family:'Palatino Linotype',serif; }
+  .install ol { margin:0; padding-left:22px; }
+  .install li { margin-bottom:8px; }
+  code { background: var(--ivory-deep); border:1px solid var(--line); padding:1px 6px; border-radius:3px; font-size:13px; }
+  footer { background: var(--forest); color: var(--ivory); padding:18px; text-align:center; }
+</style>
+</head>
+<body>
+<header class="top">
+  <nav class="wrap">
+    <span class="brand" data-i18n="brand">ClipDeck</span>
+    <select id="langSel" aria-label="language">
+      <option value="en">English</option><option value="es">Español</option><option value="fr">Français</option>
+      <option value="pt">Português</option><option value="it">Italiano</option><option value="de">Deutsch</option>
+    </select>
+  </nav>
+</header>
+
+<section class="hero wrap">
+  <div class="cards"><i></i><i></i><i></i></div>
+  <h1 data-i18n="heroTitle">ClipDeck</h1>
+  <p class="sub" data-i18n="heroSub">Clip any page — title, URL, main text and main image — into a searchable deck of cards that stays in your browser. Tag them, find them, export them.</p>
+  <a class="cta" data-i18n="cta" href="clipdeck.zip" download>Download the extension (.zip)</a>
+</section>
+
+<main class="wrap">
+  <section class="features">
+    <div class="feat"><h3 data-i18n="feat1T">One click, one card</h3><p data-i18n="feat1B">The content script extracts the article text and the principal image with a local heuristic — the deck grows without any account or server.</p><span class="tagdot">article+hero</span></div>
+    <div class="feat"><h3 data-i18n="feat2T">Search and tags</h3><p data-i18n="feat2B">Every card accepts tags; the deck search filters by title, tag or text as you type.</p><span class="tagdot">research, demo</span></div>
+    <div class="feat"><h3 data-i18n="feat3T">Export anywhere</h3><p data-i18n="feat3B">Download the deck as Markdown or JSON and take it to any tool. Everything is exported from chrome.storage.local — nothing is sent anywhere.</p><span class="tagdot">.md / .json</span></div>
+  </section>
+
+  <section class="install">
+    <h2 data-i18n="installTitle">Install (load unpacked)</h2>
+    <ol>
+      <li data-i18n="inst1">Download <code>clipdeck.zip</code> and unzip it.</li>
+      <li data-i18n="inst2">Open <code>chrome://extensions</code>, enable <em>Developer mode</em>.</li>
+      <li data-i18n="inst3">Click <em>Load unpacked</em> and select the folder.</li>
+      <li data-i18n="inst4">Open a page, press ClipDeck in the toolbar and hit <em>clip this page</em>.</li>
+    </ol>
+  </section>
+</main>
+
+<footer><span data-i18n="credit">Built by Harley Vásquez</span></footer>
+
+<script>
+(function(){
+  var LANGS=['en','es','fr','pt','it','de'];
+  var I18N={
+    en:{brand:'ClipDeck',heroTitle:'ClipDeck',heroSub:'Clip any page — title, URL, main text and main image — into a searchable deck of cards that stays in your browser. Tag them, find them, export them.',cta:'Download the extension (.zip)',feat1T:'One click, one card',feat1B:'The content script extracts the article text and the principal image with a local heuristic — the deck grows without any account or server.',feat2T:'Search and tags',feat2B:'Every card accepts tags; the deck search filters by title, tag or text as you type.',feat3T:'Export anywhere',feat3B:'Download the deck as Markdown or JSON and take it to any tool. Nothing is sent anywhere.',installTitle:'Install (load unpacked)',inst1:'Download clipdeck.zip and unzip it.',inst2:'Open chrome://extensions, enable Developer mode.',inst3:'Click Load unpacked and select the folder.',inst4:'Open a page, press ClipDeck in the toolbar and hit clip this page.',credit:'Built by Harley Vásquez'},
+    es:{brand:'ClipDeck',heroTitle:'ClipDeck',heroSub:'Recorta cualquier página — título, URL, texto principal e imagen — en un mazo de fichas buscable que vive en tu navegador. Etiquétalas, encuéntralas, expórtalas.',cta:'Descargar la extensión (.zip)',feat1T:'Un clic, una ficha',feat1B:'El content script extrae el texto del artículo y la imagen principal con una heurística local — el mazo crece sin cuentas ni servidores.',feat2T:'Búsqueda y tags',feat2B:'Cada ficha acepta tags; la búsqueda filtra por título, tag o texto mientras escribes.',feat3T:'Exporta donde quieras',feat3B:'Descarga el mazo como Markdown o JSON y llévalo a cualquier herramienta. Nada sale de tu equipo.',installTitle:'Instalación (load unpacked)',inst1:'Descarga clipdeck.zip y descomprímelo.',inst2:'Abre chrome://extensions y activa el modo desarrollador.',inst3:'Pulsa Cargar descomprimida y elige la carpeta.',inst4:'Abre una página, pulsa ClipDeck en la barra y dale a recortar esta página.',credit:'Creado por Harley Vásquez'},
+    fr:{brand:'ClipDeck',heroTitle:'ClipDeck',heroSub:'Découpez n\u2019importe quelle page — titre, URL, texte principal et image — dans un paquet de fiches consultable qui reste dans votre navigateur. Étiquetez, retrouvez, exportez.',cta:'Télécharger l\u2019extension (.zip)',feat1T:'Un clic, une fiche',feat1B:'Le script de contenu extrait le texte de l\u2019article et l\u2019image principale avec une heuristique locale — le paquet grandit sans compte ni serveur.',feat2T:'Recherche et tags',feat2B:'Chaque fiche accepte des tags ; la recherche filtre par titre, tag ou texte pendant que vous tapez.',feat3T:'Exportez partout',feat3B:'Téléchargez le paquet en Markdown ou JSON et emportez-le n\u2019importe où. Rien n\u2019est envoyé.',installTitle:'Installation (load unpacked)',inst1:'Téléchargez clipdeck.zip et décompressez-le.',inst2:'Ouvrez chrome://extensions et activez le mode développeur.',inst3:'Cliquez sur Charger l\u2019extension non empaquetée et choisissez le dossier.',inst4:'Ouvrez une page, cliquez ClipDeck dans la barre puis Découper cette page.',credit:'Créé par Harley Vásquez'},
+    pt:{brand:'ClipDeck',heroTitle:'ClipDeck',heroSub:'Recorte qualquer página — título, URL, texto principal e imagem — em um baralho de fichas pesquisável que fica no seu navegador. Etiquete, encontre, exporte.',cta:'Baixar a extensão (.zip)',feat1T:'Um clique, uma ficha',feat1B:'O content script extrai o texto do artigo e a imagem principal com uma heurística local — o baralho cresce sem contas nem servidores.',feat2T:'Busca e tags',feat2B:'Cada ficha aceita tags; a busca filtra por título, tag ou texto enquanto você digita.',feat3T:'Exporte para onde quiser',feat3B:'Baixe o baralho em Markdown ou JSON e leve para qualquer ferramenta. Nada sai do seu computador.',installTitle:'Instalação (load unpacked)',inst1:'Baixe clipdeck.zip e descompacte.',inst2:'Abra chrome://extensions e ative o modo desenvolvedor.',inst3:'Clique em Carregar sem compactação e escolha a pasta.',inst4:'Abra uma página, clique ClipDeck na barra e depois recortar esta página.',credit:'Criado por Harley Vásquez'},
+    it:{brand:'ClipDeck',heroTitle:'ClipDeck',heroSub:'Ritaglia qualsiasi pagina — titolo, URL, testo principale e immagine — in un mazzo di schede consultabile che resta nel tuo browser. Etichetta, trova, esporta.',cta:'Scarica l\u2019estensione (.zip)',feat1T:'Un clic, una scheda',feat1B:'Il content script estrae il testo dell\u2019articolo e l\u2019immagine principale con un\u2019euristica locale — il mazzo cresce senza account né server.',feat2T:'Ricerca e tag',feat2B:'Ogni scheda accetta tag; la ricerca filtra per titolo, tag o testo mentre scrivi.',feat3T:'Esporta ovunque',feat3B:'Scarica il mazzo in Markdown o JSON e portalo dove vuoi. Nulla viene inviato.',installTitle:'Installazione (load unpacked)',inst1:'Scarica clipdeck.zip ed estrailo.',inst2:'Apri chrome://extensions e attiva la modalità sviluppatore.',inst3:'Clicca Carica estensione non pacchettizzata e scegli la cartella.',inst4:'Apri una pagina, clicca ClipDeck nella barra e poi Ritaglia questa pagina.',credit:'Creato da Harley Vásquez'},
+    de:{brand:'ClipDeck',heroTitle:'ClipDeck',heroSub:'Clippe jede Seite — Titel, URL, Haupttext und Hauptbild — in einen durchsuchbaren Kartenstapel, der in deinem Browser bleibt. Tagge, finde, exportiere.',cta:'Erweiterung herunterladen (.zip)',feat1T:'Ein Klick, eine Karte',feat1B:'Das Content-Script extrahiert Artikeltext und Hauptbild mit einer lokalen Heuristik — der Stapel wächst ohne Konto oder Server.',feat2T:'Suche und Tags',feat2B:'Jede Karte nimmt Tags an; die Suche filtert nach Titel, Tag oder Text während du tippst.',feat3T:'Überall exportieren',feat3B:'Lade den Stapel als Markdown oder JSON herunter und nimm ihn überallhin mit. Nichts wird gesendet.',installTitle:'Installation (load unpacked)',inst1:'Lade clipdeck.zip herunter und entpacke es.',inst2:'Öffne chrome://extensions und aktiviere den Entwicklermodus.',inst3:'Klicke Entpackte Erweiterung laden und wähle den Ordner.',inst4:'Öffne eine Seite, klicke ClipDeck in der Symbolleiste und dann Diese Seite clippen.',credit:'Erstellt von Harley Vásquez'}
+  };
+  var LS='cd:landingLang';
+  var sel=document.getElementById('langSel');
+  function detect(){ var n=(navigator.language||'en').toLowerCase().split('-')[0]; return LANGS.indexOf(n)>=0?n:'en'; }
+  function apply(lang){
+    document.documentElement.lang=lang;
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var k=el.getAttribute('data-i18n');
+      if(I18N[lang][k]!==undefined) el.textContent=I18N[lang][k];
+    });
+    document.title=I18N[lang].heroTitle+' — '+I18N[lang].heroSub;
+  }
+  var lang=localStorage.getItem(LS); if(LANGS.indexOf(lang)<0) lang=detect();
+  sel.value=lang; apply(lang);
+  sel.addEventListener('change',function(){ localStorage.setItem(LS,sel.value); apply(sel.value); });
+})();
+</script>
+</body>
+</html>
