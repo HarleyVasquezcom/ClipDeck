@@ -2,7 +2,7 @@
 
 **Clip the page, keep the card.** ClipDeck captures the page you are reading — title, URL, main text and main image — into a deck of cards stored locally with `chrome.storage.local`. The deck is searchable (by title, tag or text), each card accepts tags, and the whole deck exports as Markdown or JSON with a click.
 
-Landing page: `https://clipdeck-xxxx.vercel.app` (placeholder, replaced at deploy time)
+Landing page: `https://clipdeck-woad.vercel.app`
 Extension ZIP: `clipdeck.zip` (dist) — also downloadable from the landing.
 
 ---
