@@ -349,6 +349,11 @@ try {
   const defaulted = await popup.evaluate(() => document.querySelector('[data-i18n="tagline"]')?.textContent);
   check('default language = navigator language (or en)', ['en', 'es', 'fr', 'pt', 'it', 'de'].includes(navLang) && EXPECTED_LABELS.tagline[navLang] === defaulted, `nav=${navLang} got=${defaulted}`);
   await popup.evaluate(() => chrome.storage.local.set({ 'cd:lang': 'en' }));
+  const popupCreditUrl = await popup.evaluate(() => {
+    const a = document.querySelector('[data-i18n="credit"]');
+    return a && a.tagName === 'A' ? a.href : '';
+  });
+  check('credit links to LinkedIn (popup)', popupCreditUrl === 'https://www.linkedin.com/in/harleyvasquez/', popupCreditUrl);
 
   // ---- Landing ----
   const landing = await browser.newPage();
@@ -367,6 +372,11 @@ try {
   const titleEs = await waitFor(() => landing.evaluate((exp) => (document.title.toLowerCase().includes(exp) ? document.title : null), 'recorta'), 5000);
   check('landing document.title translated on switch', titleEs !== null, titleEs);
   check('no JS errors on landing', landingErrors.length === 0, landingErrors.join(' | '));
+  const landingCreditUrl = await landing.evaluate(() => {
+    const a = document.querySelector('[data-i18n="credit"]');
+    return a && a.tagName === 'A' ? a.href : '';
+  });
+  check('credit links to LinkedIn (landing)', landingCreditUrl === 'https://www.linkedin.com/in/harleyvasquez/', landingCreditUrl);
   await landing.close();
 
   // ---- Packaging ----

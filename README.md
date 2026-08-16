@@ -49,4 +49,4 @@ Privacy: everything lives in `chrome.storage.local`.
 
 **ClipDeck: recorta la página, guarda la ficha.** Captura título, URL, texto principal e imagen de la página actual (heurística local, sin servidores), y guarda fichas con tags en `chrome.storage.local`. El mazo se busca en vivo (título/tag/texto), se exporta en Markdown o JSON descargable (Blob local, sin permisos extra) y se puede descartar ficha por ficha. Permiso único justificado: `storage` (los content scripts corren en `http/https`). El fixture de pruebas cambia en cada petición para demostrar que las capturas son reales y distintas. Instalación: ZIP → `chrome://extensions` → *Load unpacked*.
 
-*Built by Harley Vásquez.*
+*Built by [Harley Vásquez](https://www.linkedin.com/in/harleyvasquez/).*
